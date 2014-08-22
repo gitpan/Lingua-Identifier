@@ -1,0 +1,40 @@
+#!/usr/bin/perl -s
+
+use Lingua::Identifier;
+
+use warnings;
+use strict;
+
+our ($v);
+
+if (@ARGV) {
+	for my $file (@ARGV) {
+		my $str = Lingua::Identifier::_load_file($file);
+		my %data = Lingua::Identifier::_infer_language($str);
+		my @languages = (sort { $data{$b} <=> $data{$a} } keys %data);
+
+		if ($v) {
+			print "$file:\n";
+			for (@languages) {
+				print "$_\t$data{$_}\n";
+			}
+		} else {
+			print "$file\t$languages[0]\n";
+		}
+	}
+}
+else {
+	my $str = "";
+	binmode STDIN, ":utf8";
+	while (<STDIN>) { $str .= $_; }
+
+	my %data = Lingua::Identifier::_infer_language($str);
+	my @languages = (sort { $data{$b} <=> $data{$a} } keys %data);
+	if ($v) {
+		for (@languages) {
+			print "$_\t$data{$_}\n";
+		}
+	} else {
+		print "$languages[0]\n";
+	}
+}

@@ -1,0 +1,35 @@
+---
+abstract: 'A NN based approach for language identification'
+author:
+  - 'Alberto SimÃµes <ambs@cpan.org>'
+build_requires:
+  File::ShareDir: '1.03'
+  Math::Matrix::MaybeGSL: '0.005'
+  Test::More: '0'
+  autodie: '0'
+configure_requires:
+  Module::Build: '0.36'
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4208, CPAN::Meta::Converter version 2.142060'
+license: artistic_2
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: Lingua-Identifier
+provides:
+  Lingua::Identifier:
+    file: lib/Lingua/Identifier.pm
+    version: 0.01_2
+  Lingua::Identifier::Feature::Alphabet:
+    file: lib/Lingua/Identifier/Feature/Alphabet.pm
+  Lingua::Identifier::Feature::Trigrams:
+    file: lib/Lingua/Identifier/Feature/Trigrams.pm
+  Lingua::Identifier::ForwardProp:
+    file: lib/Lingua/Identifier/ForwardProp.pm
+requires:
+  File::ShareDir: '1.03'
+  Math::Matrix::MaybeGSL: '0.004'
+  Text::Ngram: '0'
+resources:
+  license: http://www.perlfoundation.org/artistic_license_2_0
+version: 0.01_2

@@ -1,0 +1,60 @@
+{
+   "abstract" : "A NN based approach for language identification",
+   "author" : [
+      "Alberto SimÃµes <ambs@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4208",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Lingua-Identifier",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "File::ShareDir" : "1.03",
+            "Math::Matrix::MaybeGSL" : "0.005",
+            "Test::More" : "0",
+            "autodie" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.36"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "File::ShareDir" : "1.03",
+            "Math::Matrix::MaybeGSL" : "0.004",
+            "Text::Ngram" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "Lingua::Identifier" : {
+         "file" : "lib/Lingua/Identifier.pm",
+         "version" : "0.01_2"
+      },
+      "Lingua::Identifier::Feature::Alphabet" : {
+         "file" : "lib/Lingua/Identifier/Feature/Alphabet.pm"
+      },
+      "Lingua::Identifier::Feature::Trigrams" : {
+         "file" : "lib/Lingua/Identifier/Feature/Trigrams.pm"
+      },
+      "Lingua::Identifier::ForwardProp" : {
+         "file" : "lib/Lingua/Identifier/ForwardProp.pm"
+      }
+   },
+   "release_status" : "testing",
+   "resources" : {
+      "license" : [
+         "http://www.perlfoundation.org/artistic_license_2_0"
+      ]
+   },
+   "version" : "0.01_2"
+}
