@@ -21,11 +21,11 @@ Lingua::Identifier - A NN based approach for language identification
 
 =head1 VERSION
 
-Version 0.01_2
+Version 0.01_3
 
 =cut
 
-our $VERSION = '0.01_2';
+our $VERSION = '0.01_3';
 
 our $sharedir = dist_dir('Lingua-Identifier');
 
@@ -41,25 +41,45 @@ _load_thetas($sharedir);
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
     use Lingua::Identifier;
 
-    my $foo = Lingua::Identifier->new();
-    ...
+    my $identifier = Lingua::Identifier->new();
 
-=head1 EXPORT
+    my $lang = $identifier->identify_file("text.txt");
 
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+=head1 DESCRIPTION
 
-=head1 SUBROUTINES/METHODS
+This documentation is not ready yet. These releases are just for
+CPANtesters testing.
 
-=head2 function1
+=head2 C<new>
+
+Constructs a new Language Identification object.
+
+    my $identifier = Lingua::Identifier->new();
 
 =cut
+
+sub new {
+    return bless { }, __PACKAGE__;
+}
+
+=head2 C<identify_file>
+
+This method receives a string and tries to identify its langauge.
+
+In scalar context returns the language id. In list context returns an
+associative array, with language codes and respective scores.
+
+    my $lang = $identifier->identify_file("sometext.txt");
+
+=cut
+
+sub identify_file {
+    my ($self, $filename) = @_;
+
+    _infer_language($filename);
+}
 
 sub _infer_language {
     my $file = shift;
@@ -134,21 +154,15 @@ Alberto Simões, C<< <ambs at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-lingua-Identifier at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Lingua-Identifier>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
-
-
-
+Please report any bugs or feature requests to C<bug-lingua-Identifier
+at rt.cpan.org>, or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Lingua-Identifier>.
+I will be notified, and then you'll automatically be notified of
+progress on your bug as I make changes.
 
 =head1 SUPPORT
 
-You can find documentation for this module with the perldoc command.
-
-    perldoc Lingua::Identifier
-
-
-You can also look for information at:
+You look for information at:
 
 =over 4
 
@@ -169,10 +183,6 @@ L<http://cpanratings.perl.org/d/Lingua-Identifier>
 L<http://search.cpan.org/dist/Lingua-Identifier/>
 
 =back
-
-
-=head1 ACKNOWLEDGEMENTS
-
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -213,7 +223,6 @@ YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR
 CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR
 CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE,
 EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 
 =cut
 

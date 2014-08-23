@@ -38,7 +38,7 @@
    "provides" : {
       "Lingua::Identifier" : {
          "file" : "lib/Lingua/Identifier.pm",
-         "version" : "0.01_2"
+         "version" : "0.01_3"
       },
       "Lingua::Identifier::Feature::Alphabet" : {
          "file" : "lib/Lingua/Identifier/Feature/Alphabet.pm"
@@ -56,5 +56,5 @@
          "http://www.perlfoundation.org/artistic_license_2_0"
       ]
    },
-   "version" : "0.01_2"
+   "version" : "0.01_3"
 }

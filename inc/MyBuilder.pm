@@ -44,7 +44,7 @@ sub ACTION_prepare_thetas {
     my @arch;
     for (1..$nr_layers) {
         chomp($line = <$fh>);
-        @arch[$_] = $line;
+        $arch[$_] = $line;
     }
 
     ## Load and save matrices

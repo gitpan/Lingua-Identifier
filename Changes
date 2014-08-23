@@ -1,5 +1,9 @@
 Revision history for Lingua-Identifier
 
-0.01    Date/time
-        First version, released on an unsuspecting world.
+0.01_3  2014-08-23
+        - Some CPAN testers did not test because of a warning that is now fixed.
+        - Added some more documentation, and a public method.
+
+0.01_2  2014-08-22
+        - First working version, without documentation, for cpan-testers runs.
 

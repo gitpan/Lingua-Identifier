@@ -19,7 +19,7 @@ name: Lingua-Identifier
 provides:
   Lingua::Identifier:
     file: lib/Lingua/Identifier.pm
-    version: 0.01_2
+    version: 0.01_3
   Lingua::Identifier::Feature::Alphabet:
     file: lib/Lingua/Identifier/Feature/Alphabet.pm
   Lingua::Identifier::Feature::Trigrams:
@@ -32,4 +32,4 @@ requires:
   Text::Ngram: '0'
 resources:
   license: http://www.perlfoundation.org/artistic_license_2_0
-version: 0.01_2
+version: 0.01_3
