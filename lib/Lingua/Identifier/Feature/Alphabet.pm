@@ -1,5 +1,5 @@
 package Lingua::Identifier::Feature::Alphabet;
-
+$Lingua::Identifier::Feature::Alphabet::VERSION = '0.01_4';
 use 5.006;
 use strict;
 
@@ -340,5 +340,9 @@ sub count_simplified_chinese { my $a=shift;
 纣绉辀鸼诸嘱驻猪着铸烛贮苎潴橥伫瞩槠诛铢纻挝赚砖专转馔颛啭装状壮桩赘坠锥缀缒骓谆
 浊镯诼棁资渍眦缁鹚赀镃龇鲻辎锱踪总纵综疭偬骤诹邹驺鲰诌组诅镞钻缵躜槜鳟});
 }
+
+=for Pod::Coverage clean_other count_simplified_chinese count_traditional_chinese features
+
+=cut
 
 1;

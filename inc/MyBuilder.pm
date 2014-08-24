@@ -5,7 +5,7 @@ use strict;
 
 use autodie;
 
-use Math::Matrix::MaybeGSL;
+use Math::Matrix::MaybeGSL 0.005;
 use Data::Dumper;
 
 sub ACTION_code {

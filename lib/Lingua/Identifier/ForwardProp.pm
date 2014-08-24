@@ -1,5 +1,5 @@
 package Lingua::Identifier::ForwardProp;
-
+$Lingua::Identifier::ForwardProp::VERSION = '0.01_4';
 use 5.006;
 use strict;
 
@@ -25,6 +25,11 @@ sub forward_prop {
 
     return $a->[-1];
 }
+
+
+=for Pod::Coverage sigmoid forward_prop
+
+=cut
 
 1;
 

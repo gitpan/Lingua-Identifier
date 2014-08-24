@@ -1,5 +1,5 @@
 package Lingua::Identifier;
-
+$Lingua::Identifier::VERSION = '0.01_4';
 use 5.014004;
 use strict;
 use warnings FATAL => 'all';
@@ -19,13 +19,7 @@ use Lingua::Identifier::Feature::Alphabet;
 
 Lingua::Identifier - A NN based approach for language identification
 
-=head1 VERSION
-
-Version 0.01_3
-
 =cut
-
-our $VERSION = '0.01_3';
 
 our $sharedir = dist_dir('Lingua-Identifier');
 
@@ -45,7 +39,11 @@ _load_thetas($sharedir);
 
     my $identifier = Lingua::Identifier->new();
 
+    # identify language on a file
     my $lang = $identifier->identify_file("text.txt");
+
+    # identify language on a string
+    my $lang = $identifier->identify($string);
 
 =head1 DESCRIPTION
 
@@ -61,12 +59,24 @@ Constructs a new Language Identification object.
 =cut
 
 sub new {
-    return bless { }, __PACKAGE__;
+
+    return bless { languages => $classes }, __PACKAGE__;
+}
+
+=head2 C<languages>
+
+Returns the list of codes for the active languages.
+
+=cut
+
+sub languages {
+    my $self = shift;
+    return @{$self->{languages}};
 }
 
 =head2 C<identify_file>
 
-This method receives a string and tries to identify its langauge.
+This method receives a filename and tries to identify its langauge.
 
 In scalar context returns the language id. In list context returns an
 associative array, with language codes and respective scores.
@@ -78,13 +88,25 @@ associative array, with language codes and respective scores.
 sub identify_file {
     my ($self, $filename) = @_;
 
-    _infer_language($filename);
+    my $string = _load_file($filename);
+    $self->identify($string);
 }
 
-sub _infer_language {
-    my $file = shift;
+=head2 C<identify>
 
-    my $ngrams = _compute_features($file);
+This method receives a string and tries to identify its langauge.
+
+In scalar context returns the language id. In list context returns an
+associative array, with language codes and respective scores.
+
+    my $lang = $identifier->identify($string);
+
+=cut
+
+sub identify {
+    my ($self, $string) = @_;
+
+    my $ngrams = _compute_features($string);
 
     my $data = Matrix->new(scalar(@$features), 1);
 
@@ -137,6 +159,8 @@ sub _load_thetas {
             $thetas->[$1 - 1] = Matrix->read(catfile($path, $tfile));
         }
     }
+
+    closedir $dir;
 }
 
 sub _compute_features {
@@ -151,6 +175,14 @@ sub _compute_features {
 =head1 AUTHOR
 
 Alberto Simões, C<< <ambs at cpan.org> >>
+
+=head1 ACKNOWLEDGMENTS
+
+=over 4
+
+=item * Simon D. Byers
+
+=back
 
 =head1 BUGS
 

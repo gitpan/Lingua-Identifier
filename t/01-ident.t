@@ -11,12 +11,13 @@ my @files = <t/files/*.txt>;
 
 plan tests => scalar(@files);
 
+my $id = Lingua::Identifier->new();
 
-for my $f (@files) {
-    $f =~ m!([^/]+)\.txt!;
-    my $lang = $1;
+my @langs = $id->languages();
 
-    my $str = Lingua::Identifier::_load_file($f);
-    my $id = Lingua::Identifier::_infer_language($str);
+for my $lang (@langs) {
+    my $file = qq{t/files/$lang.txt};
+    my $id   = $id->identify_file($file);
+
     is $id => $lang, "Testing $lang";
 }
