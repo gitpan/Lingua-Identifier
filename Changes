@@ -1,9 +1,12 @@
 Revision history for Lingua-Identifier
 
+0.01_5  2014-08-25
+        - Added debug messages.
+        - Bumped Math::Matrix::MaybeGSL version dependency.
+
 0.01_4  2014-08-24
         - Basic API is now stable.
         - Build based on Dist::Zilla.
-        - Bumped Math::Matrix::MaybeGSL version dependency.
         - Still wondering what is going on with perl 5.16.3.
 
 0.01_3  2014-08-23

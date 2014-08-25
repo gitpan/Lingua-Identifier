@@ -18,7 +18,7 @@ my %module_build_args = (
     "Alberto Simoes <ambs\@cpan.org>"
   ],
   "dist_name" => "Lingua-Identifier",
-  "dist_version" => "0.01_4",
+  "dist_version" => "0.01_5",
   "license" => "perl",
   "module_name" => "Lingua::Identifier",
   "recommends" => {},
@@ -26,7 +26,7 @@ my %module_build_args = (
   "requires" => {
     "File::ShareDir" => 0,
     "File::Spec::Functions" => 0,
-    "Math::Matrix::MaybeGSL" => 0,
+    "Math::Matrix::MaybeGSL" => "0.005",
     "Text::Ngram" => 0,
     "perl" => "5.014004",
     "strict" => 0,

@@ -1,5 +1,5 @@
 package Lingua::Identifier;
-$Lingua::Identifier::VERSION = '0.01_4';
+$Lingua::Identifier::VERSION = '0.01_5';
 use 5.014004;
 use strict;
 use warnings FATAL => 'all';
@@ -7,7 +7,7 @@ use warnings FATAL => 'all';
 use File::ShareDir 'dist_dir';
 use File::Spec::Functions;
 
-use Math::Matrix::MaybeGSL;
+use Math::Matrix::MaybeGSL 0.005;
 
 use Lingua::Identifier::ForwardProp;
 use Lingua::Identifier::Feature::Trigrams;
@@ -155,6 +155,9 @@ sub _load_thetas {
     my @ts = readdir $dir;
 
     for my $tfile (@ts) {
+
+        print STDERR " - found file $tfile\n";
+
         if ($tfile =~ /theta-(\d+)\.dat/) {
             $thetas->[$1 - 1] = Matrix->read(catfile($path, $tfile));
         }

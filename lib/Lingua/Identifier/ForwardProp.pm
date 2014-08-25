@@ -1,5 +1,5 @@
 package Lingua::Identifier::ForwardProp;
-$Lingua::Identifier::ForwardProp::VERSION = '0.01_4';
+$Lingua::Identifier::ForwardProp::VERSION = '0.01_5';
 use 5.006;
 use strict;
 
