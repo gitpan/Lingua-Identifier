@@ -1,5 +1,5 @@
 package Lingua::Identifier::Feature::Alphabet;
-$Lingua::Identifier::Feature::Alphabet::VERSION = '0.01_5';
+$Lingua::Identifier::Feature::Alphabet::VERSION = '0.01_6';
 use 5.006;
 use strict;
 

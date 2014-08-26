@@ -1,5 +1,5 @@
 package Lingua::Identifier;
-$Lingua::Identifier::VERSION = '0.01_5';
+$Lingua::Identifier::VERSION = '0.01_6';
 use 5.014004;
 use strict;
 use warnings FATAL => 'all';
@@ -155,11 +155,10 @@ sub _load_thetas {
     my @ts = readdir $dir;
 
     for my $tfile (@ts) {
-
-        print STDERR " - found file $tfile\n";
-
         if ($tfile =~ /theta-(\d+)\.dat/) {
-            $thetas->[$1 - 1] = Matrix->read(catfile($path, $tfile));
+            my $file = catfile($path, $tfile);
+            print STDERR "Loading '$file'\n";
+            $thetas->[$1 - 1] = Matrix->read($file);
         }
     }
 
