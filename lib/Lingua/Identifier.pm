@@ -1,5 +1,5 @@
 package Lingua::Identifier;
-$Lingua::Identifier::VERSION = '0.01_6';
+$Lingua::Identifier::VERSION = '0.01_7';
 use 5.014004;
 use strict;
 use warnings FATAL => 'all';
@@ -7,7 +7,7 @@ use warnings FATAL => 'all';
 use File::ShareDir 'dist_dir';
 use File::Spec::Functions;
 
-use Math::Matrix::MaybeGSL 0.005;
+use Math::Matrix::MaybeGSL 0.006;
 
 use Lingua::Identifier::ForwardProp;
 use Lingua::Identifier::Feature::Trigrams;
@@ -20,6 +20,13 @@ use Lingua::Identifier::Feature::Alphabet;
 Lingua::Identifier - A NN based approach for language identification
 
 =cut
+
+if (Matrix->isGSL) {
+    eval {
+        require Math::GSL;
+        print STDERR "\n\n Running GSL version ", Math::GSL::gsl_version(), "\n\n";
+    }
+}
 
 our $sharedir = dist_dir('Lingua-Identifier');
 

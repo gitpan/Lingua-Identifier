@@ -8,9 +8,11 @@ use lib qw{inc}; use MyBuilder;
 
 my %module_build_args = (
   "build_requires" => {
+    "Math::Matrix::MaybeGSL" => "0.006",
     "Module::Build" => "0.3601"
   },
   "configure_requires" => {
+    "Math::Matrix::MaybeGSL" => "0.006",
     "Module::Build" => "0.3601"
   },
   "dist_abstract" => "A NN based approach for language identification",
@@ -18,7 +20,7 @@ my %module_build_args = (
     "Alberto Simoes <ambs\@cpan.org>"
   ],
   "dist_name" => "Lingua-Identifier",
-  "dist_version" => "0.01_6",
+  "dist_version" => "0.01_7",
   "license" => "perl",
   "module_name" => "Lingua::Identifier",
   "recommends" => {},
@@ -26,7 +28,8 @@ my %module_build_args = (
   "requires" => {
     "File::ShareDir" => 0,
     "File::Spec::Functions" => 0,
-    "Math::Matrix::MaybeGSL" => "0.005",
+    "Math::GSL" => 0,
+    "Math::Matrix::MaybeGSL" => "0.006",
     "Text::Ngram" => 0,
     "perl" => "5.014004",
     "strict" => 0,
@@ -46,6 +49,7 @@ my %module_build_args = (
 
 
 my %fallback_build_requires = (
+  "Math::Matrix::MaybeGSL" => "0.006",
   "Module::Build" => "0.3601",
   "Test::More" => 0
 );

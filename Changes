@@ -1,5 +1,10 @@
 Revision history for Lingua-Identifier
 
+0.01_7  2014-08-27
+        - Fixed identify_language script to use new API.
+        - Fixed dependencies issues.
+        - Still debugging...
+
 0.01_6  2014-08-26
         - Added more debug messages :'(
 

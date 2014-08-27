@@ -7,34 +7,37 @@ use strict;
 
 our ($v);
 
-if (@ARGV) {
-	for my $file (@ARGV) {
-		my $str = Lingua::Identifier::_load_file($file);
-		my %data = Lingua::Identifier::_infer_language($str);
-		my @languages = (sort { $data{$b} <=> $data{$a} } keys %data);
+my $identifier = Lingua::Identifier->new();
 
-		if ($v) {
-			print "$file:\n";
-			for (@languages) {
-				print "$_\t$data{$_}\n";
-			}
-		} else {
-			print "$file\t$languages[0]\n";
-		}
-	}
+## XXX - todo: homogeneizar os dois ramos do IF numa única função?
+
+if (@ARGV) {
+    for my $file (@ARGV) {
+        my %data = $identifier->identify_file($file);
+        my @languages = (sort { $data{$b} <=> $data{$a} } keys %data);
+
+        if ($v) {
+            print "$file:\n";
+            for (@languages) {
+                printf "%s\t%s\n", $_, 100*$data{$_};
+            }
+        } else {
+            print "$file\t$languages[0]\n";
+        }
+    }
 }
 else {
-	my $str = "";
-	binmode STDIN, ":utf8";
-	while (<STDIN>) { $str .= $_; }
+    my $str = "";
+    binmode STDIN, ":utf8";
+    while (<STDIN>) { $str .= $_; }
 
-	my %data = Lingua::Identifier::_infer_language($str);
-	my @languages = (sort { $data{$b} <=> $data{$a} } keys %data);
-	if ($v) {
-		for (@languages) {
-			print "$_\t$data{$_}\n";
-		}
-	} else {
-		print "$languages[0]\n";
-	}
+    my %data = $identifier->identify($str);
+    my @languages = (sort { $data{$b} <=> $data{$a} } keys %data);
+    if ($v) {
+        for (@languages) {
+            printf "%s\t%s\n", $_, 100*$data{$_};
+        }
+    } else {
+        print "$languages[0]\n";
+    }
 }
