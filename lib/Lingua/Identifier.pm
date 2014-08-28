@@ -1,5 +1,5 @@
 package Lingua::Identifier;
-$Lingua::Identifier::VERSION = '0.01_7';
+$Lingua::Identifier::VERSION = '0.01_8';
 use 5.014004;
 use strict;
 use warnings FATAL => 'all';

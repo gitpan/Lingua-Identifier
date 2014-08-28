@@ -20,7 +20,7 @@ my %module_build_args = (
     "Alberto Simoes <ambs\@cpan.org>"
   ],
   "dist_name" => "Lingua-Identifier",
-  "dist_version" => "0.01_7",
+  "dist_version" => "0.01_8",
   "license" => "perl",
   "module_name" => "Lingua::Identifier",
   "recommends" => {},

@@ -1,5 +1,9 @@
 Revision history for Lingua-Identifier
 
+0.01_8  2014-08-28
+        - SWIG code doesn't deal well it tainted variables.
+          Workaround is not taint anything.
+
 0.01_7  2014-08-27
         - Fixed identify_language script to use new API.
         - Fixed dependencies issues.
