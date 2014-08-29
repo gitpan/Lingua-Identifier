@@ -1,5 +1,5 @@
 package Lingua::Identifier::Feature::Trigrams;
-$Lingua::Identifier::Feature::Trigrams::VERSION = '0.01_8';
+$Lingua::Identifier::Feature::Trigrams::VERSION = '0.01';
 use 5.006;
 use strict;
 

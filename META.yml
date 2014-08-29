@@ -19,11 +19,10 @@ name: Lingua-Identifier
 requires:
   File::ShareDir: '0'
   File::Spec::Functions: '0'
-  Math::GSL: '0'
   Math::Matrix::MaybeGSL: '0.006'
   Text::Ngram: '0'
   perl: '5.014004'
   strict: '0'
   utf8: '0'
   warnings: '0'
-version: 0.01_8
+version: '0.01'

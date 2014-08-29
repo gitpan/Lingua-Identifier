@@ -1,5 +1,8 @@
 Revision history for Lingua-Identifier
 
+0.01    2014-08-29
+        - Released stable version.
+
 0.01_8  2014-08-28
         - SWIG code doesn't deal well it tainted variables.
           Workaround is not taint anything.
